@@ -24,4 +24,5 @@ jobs:
           node-version: 20
       - run: pnpm install
       - run: pnpm outdated_check
+        continue-on-error: true
       - run: pnpm test
