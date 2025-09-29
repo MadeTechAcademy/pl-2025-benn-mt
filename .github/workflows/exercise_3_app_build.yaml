@@ -1,0 +1,25 @@
+name: Exercise 3
+
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: ./exercises/3-github-actions/app
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+      - run: pnpm install
+      - run: pnpm outdated_check
+        continue-on-error: true
+      - run: pnpm test
