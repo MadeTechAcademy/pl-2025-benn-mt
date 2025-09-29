@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: 20
       - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
       - run: pnpm ci
       - run: pnpm test
 
@@ -37,6 +41,10 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
       - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
       - run: pnpm ci
       - run: pnpm publish
         env:
